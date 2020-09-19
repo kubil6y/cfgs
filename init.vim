@@ -5,30 +5,30 @@
 ":wq
 
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/emmet-vim' 
+Plug 'airblade/vim-gitgutter'
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'iamcco/coc-tailwindcss'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'iamcco/coc-tailwindcss'
 Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
 Plug 'yggdroot/indentline'
-Plug 'vim-airline/vim-airline'
-Plug 'KabbAmine/vCoolor.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'KabbAmine/vCoolor.vim'
 Plug 'ap/vim-css-color'
+Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
-Plug 'mattn/emmet-vim' 
 call plug#end()
 
 " kubidik
