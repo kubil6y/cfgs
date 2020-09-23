@@ -11,6 +11,7 @@ alias dls='cd ~/Downloads/;'
 alias skubi='rg -i kubi ./src/*'
 alias scl='rg -i console ./src/*'
 alias szi='rg -i z-index ./src/*'
+alias tmux='env TERM=screen-256color tmux'
 alias itw='yarn init -y; yarn add tailwindcss postcss-cli autoprefixer; npx tailwind init; touch postcss.config.js'
 alias serve='live-server'
 
