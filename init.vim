@@ -5,7 +5,8 @@
 ":wq
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/emmet-vim' 
@@ -32,7 +33,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " solves floating message problem (temp fix)
-autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
+"autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
 
 " easy movement between screens
 nmap <C-h> <C-w>h
