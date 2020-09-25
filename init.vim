@@ -31,7 +31,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 call plug#end()
 
-" kubidik
+" solves floating message problem (temp fix)
+autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
+
+" easy movement between screens
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -182,6 +185,7 @@ let g:coc_global_extensions = [
   \ 'coc-tslint-plugin', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-styled-components', 
   \ ]
 
 " DEFAULT SHIT FOR COC PLUGIN FROM HERE AND UNDER
