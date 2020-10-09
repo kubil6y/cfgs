@@ -4,6 +4,7 @@
 
 #### KUBILAY BINDINGS ####
 PROMPT_DIRTRIM=1
+export EDITOR=/usr/bin/nvim
 alias docs='cd ~/Documents/'
 alias pg='cd ~/Documents/pg/'
 alias dsk='cd ~/Desktop/'
@@ -14,6 +15,7 @@ alias szi='rg -i z-index ./src/*'
 alias tmux='env TERM=screen-256color tmux'
 alias itw='yarn init -y; yarn add tailwindcss postcss-cli autoprefixer; npx tailwind init; touch postcss.config.js'
 alias serve='live-server'
+alias robo="/usr/local/bin/robomongo/robo3t-1.4.1-linux-x86_64-122dbd9/bin/robo3t"
 
 # If not running interactively, don't do anything
 case $- in
