@@ -6,6 +6,7 @@
 
 call plug#begin('~/.vim/plugged')
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -58,6 +59,7 @@ set ignorecase
 set signcolumn=yes
 set nocursorline
 set guicursor=
+
 "Enable true color 启用终端24位色
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -74,6 +76,8 @@ let g:airline_theme = 'zenburn'
 setlocal foldmethod=manual
 nnoremap qj zfit
 nnoremap qk za
+
+nnoremap ,ut :UndotreeToggle<CR>
 
 " save bindings
 noremap <silent> <C-S>          :update<CR>
