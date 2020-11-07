@@ -6,10 +6,12 @@
 
 call plug#begin('~/.vim/plugged')
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/emmet-vim' 
 Plug 'airblade/vim-gitgutter'
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
@@ -32,6 +34,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 call plug#end()
+
+" FZF SETUP
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <C-f> :Rg! 
 
 " solves floating message problem (temp fix)
 "autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
@@ -96,22 +108,7 @@ nnoremap  ,y  "+y
 " search&replace & under-cursor s&r
 nnoremap ,sr :%s/
 nnoremap ,ur :,$s/
-"ctrlp file limit
-let g:ctrlp_max_files=0
-"ctrlp clearcache && nerdtreerefreshroot
-nnoremap <F9> :CtrlPClearAllCaches<CR> <bar> :NERDTreeRefreshRoot<CR>
-"nnoremap ,re :CtrlPClearAllCaches<CR> <bar> :NERDTreeRefreshRoot<CR>
-" switching between recent buffers
-nnoremap <A-`> :b#<CR>
-nnoremap ,ww :bnext<CR> 
-nnoremap ,ss :bprev<CR> 
-" Ignore some folders and files for faster CtrlP indexing
-" ignoring buildts folder for typescript 
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.yardoc\|node_modules\|tmp$\|buildts',
-      \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-      \ }
-let g:ctrlp_regexp = 1
+
 "react jsx commenting solution??
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
