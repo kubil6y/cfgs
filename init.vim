@@ -44,6 +44,8 @@ nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <C-f> :Rg! 
+let g:fzf_buffers_jump = 1
+nnoremap <A-`> :b#<CR>
 
 " solves floating message problem (temp fix)
 "autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
