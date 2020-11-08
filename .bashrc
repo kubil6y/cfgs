@@ -1,10 +1,8 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 #### KUBILAY BINDINGS ####
 PROMPT_DIRTRIM=1
 export EDITOR=/usr/bin/nvim
+export FZF_DEFAULT_COMMAND='rg --files'
+#export FZF_DEFAULT_OPTS='--reverse'
 alias docs='cd ~/Documents/'
 alias pg='cd ~/Documents/pg/'
 alias dsk='cd ~/Desktop/'
