@@ -43,7 +43,6 @@ let g:fzf_action = {
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
-nnoremap <C-f> :Rg! 
 let g:fzf_buffers_jump = 1
 nnoremap <A-`> :b#<CR>
 
