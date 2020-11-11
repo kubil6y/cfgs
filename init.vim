@@ -38,13 +38,15 @@ call plug#end()
 " FZF SETUP
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
+  \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
-nnoremap <silent> <C-p> :GFiles<CR>
-nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-m> :Buffers<CR>
 let g:fzf_buffers_jump = 1
 nnoremap <A-`> :b#<CR>
+
+" this shit is a godsent
+command! -nargs=* W w
 
 " solves floating message problem (temp fix)
 "autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
