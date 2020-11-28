@@ -6,11 +6,11 @@
 
 call plug#begin('~/.vim/plugged')
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'mbbill/undotree'
-Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'mattn/emmet-vim' 
 Plug 'airblade/vim-gitgutter'
@@ -41,7 +41,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-m> :Buffers<CR>
+nnoremap <silent> <C-n> :Buffers<CR>
 let g:fzf_buffers_jump = 1
 nnoremap <A-`> :b#<CR>
 
@@ -157,6 +157,7 @@ let mapleader= ','
 " for marks only in normal mode
 nnoremap ' `
 noremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <F9> :NERDTreeRefreshRoot<CR>
 let NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['^node_modules']
 "VIM-EASYMOTION
