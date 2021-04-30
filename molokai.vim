@@ -50,7 +50,7 @@ hi Exception       guifg=#A6E22E               gui=bold
 hi Float           guifg=#AE81FF
 hi FoldColumn      guifg=#465457 guibg=#000000
 hi Folded          guifg=#465457 guibg=#000000
-hi Function        guifg=#A6E22E
+hi Function        guifg=#A6E22E gui=bold cterm=bold
 hi Identifier      guifg=#FD971F
 hi Ignore          guifg=#808080 guibg=bg
 hi IncSearch       guifg=#C4BE89 guibg=#000000
@@ -63,7 +63,7 @@ hi SpecialKey      guifg=#66D9EF               gui=italic
 hi MatchParen guifg=NONE guibg=#665c54 guisp=NONE gui=bold cterm=bold
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
-hi Operator        guifg=#F8F8F0
+hi Operator        guifg=#FFFED4
 
 " complete menu
 hi Pmenu           guifg=#66D9EF guibg=#000000
@@ -110,7 +110,8 @@ hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
 hi TabLine         guibg=#1B1D1E guifg=#808080 gui=none
 
 if s:molokai_original == 1
-   hi Normal          guifg=#fbf1c7 guibg=#272822
+   "hi Normal          guifg=#FFFED4 guibg=#272822
+   hi Normal          guifg=#f5f4ca guibg=#272822
    hi Comment         guifg=#75715E
    hi CursorLine                    guibg=#3E3D32
    hi CursorLineNr guifg=#fabd2f guibg=NONE guisp=NONE gui=bold cterm=bold
@@ -120,7 +121,7 @@ if s:molokai_original == 1
    hi NonText         guifg=#75715E
    hi SpecialKey      guifg=#75715E
 else
-   hi Normal          guifg=#fbf1c7 guibg=#1B1D1E
+   hi Normal          guifg=#FFFED4 guibg=#1B1D1E
    hi Comment         guifg=#7E8E91
    hi CursorLine                    guibg=#293739
    hi CursorLineNr guifg=#fabd2f guibg=NONE guisp=NONE gui=bold cterm=bold
