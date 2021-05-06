@@ -62,7 +62,7 @@ set ignorecase
 set signcolumn=yes
 set nocursorline
 set guicursor=
-set laststatus=0
+set laststatus=0 "disables status line
 
 "Enable true color 启用终端24位色
 if exists('+termguicolors')
