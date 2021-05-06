@@ -16,5 +16,6 @@
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true
+  "prettier.jsxSingleQuote": true,
+  "coc.preferences.floatActions": false
 }

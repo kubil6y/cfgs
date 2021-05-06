@@ -5,35 +5,29 @@
 ":wq
 
 call plug#begin('~/.vim/plugged')
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'commit': '4f40c16a15336b589b1b5b509df4e00300d755eb'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'mbbill/undotree'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'mattn/emmet-vim' 
 Plug 'airblade/vim-gitgutter'
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'iamcco/coc-tailwindcss'
-Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
-Plug 'jiangmiao/auto-pairs'
-Plug 'matze/vim-move'
-Plug 'yggdroot/indentline'
-Plug 'easymotion/vim-easymotion'
-Plug 'KabbAmine/vCoolor.vim'
-Plug 'ap/vim-css-color'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes' 
+Plug 'jiangmiao/auto-pairs'
+Plug 'honza/vim-snippets'
 call plug#end()
+
+" leader key mapping
+let mapleader= ','
 
 " FZF SETUP
 let g:fzf_action = {
@@ -45,11 +39,8 @@ nnoremap <silent> <C-n> :Buffers<CR>
 let g:fzf_buffers_jump = 1
 nnoremap <A-`> :b#<CR>
 
-" this shit is a godsent
+" this shit is a godsent, :W works
 command! -nargs=* W w
-
-" solves floating message problem (temp fix)
-"autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
 
 " easy movement between screens
 nmap <C-h> <C-w>h
@@ -57,13 +48,10 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
 syntax on
 set expandtab
 set smarttab
-set number relativenumber
+set number
 set noswapfile
 set cindent
 set tabstop=2
@@ -74,6 +62,7 @@ set ignorecase
 set signcolumn=yes
 set nocursorline
 set guicursor=
+set laststatus=0
 
 "Enable true color 启用终端24位色
 if exists('+termguicolors')
@@ -82,91 +71,61 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-"autocmd ColorScheme * highlight CocHighlightText     guibg=#45413b "badwolf matching terms for coc
 set background=dark
 colorscheme gruvbox8_hard
-let g:airline_theme = 'zenburn' 
 
-" folding html
-setlocal foldmethod=manual
-nnoremap qj zfit
-nnoremap qk za
+nnoremap <leader>ut :UndotreeToggle<CR>
 
-nnoremap ,ut :UndotreeToggle<CR>
-
-" save bindings
+" save bindings ctrl s save (disabled)
 noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+"vnoremap <silent> <C-S>         <C-C>:update<CR>
+"inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>re :Prettier<CR>
+" disabling commenting the new line after a comment
+autocmd FileType * set formatoptions-=cro
+" indent lines on/off
+nnoremap <leader>2 :IndentLinesToggle<CR>
 " sort tailwind classes
-nnoremap ,tw :CocCommand tailwindCSS.headwind.sortTailwindClasses<CR>
+nnoremap <leader>tw :CocCommand tailwindCSS.headwind.sortTailwindClasses<CR>
 " delete search results
-nnoremap ,ds :noh<CR>
+nnoremap <leader>ds :noh<CR>
 " refresh init.vim
-nnoremap ,so :source ~/.config/nvim/init.vim<CR>
-"global clipboard
-vnoremap  ,y  "+y
-nnoremap  ,y  "+y
+nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
+" global clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>y  "+y
 " search&replace & under-cursor s&r
-nnoremap ,sr :%s/
-nnoremap ,ur :,$s/
+nnoremap <leader>sr :%s/
+nnoremap <leader>ur :,$s/
+" i dont like these keys
+nnoremap S <nop>
+nnoremap s <nop>
+nnoremap Q <nop>
+nnoremap q <nop>
+
+" not sure what these to lel might have something to do with coc.nvim
+"nnoremap H gT
+"nnoremap L gt
 
 "react jsx commenting solution??
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 	\ 'typescript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
-" disabling commenting the new line after a comment
-autocmd FileType * set formatoptions-=cro
-" sudo apt install yad //for vCoolor (color picker)
-"alt-r rgb
-"alt-v hsl
-"alt-w rgba
-"alt-c #hex
-" indent lines on/off
-nnoremap ,2 :IndentLinesToggle<CR>
-" smarter tab line
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#enabled = 1 
-let g:airline_powerline_fonts = 1"
-let g:airline#extensions#tabline#formatter = 'default'
-nnoremap H gT
-nnoremap L gt
+
 " closetag file names setup
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
-" let b:coc_pairs_disabled = ['<']
-" prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nnoremap ,P :Prettier<CR>
-" emmet only for html/css(+react/js)
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss,javascript,jsx,typescript,typescript.tsx EmmetInstall
-let g:user_emmet_leader_key = ','
-let g:user_emmet_leader_key='<c-e>'
 
-let g:user_emmet_mode='i'
-let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx',
-\  },
-\}
-" leader key mapping
-let mapleader= ','
 " for marks only in normal mode
 nnoremap ' `
-noremap <Leader>n :NERDTreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<CR>
 nnoremap <F9> :NERDTreeRefreshRoot<CR>
 let NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['^node_modules']
-"VIM-EASYMOTION
-let g:EasyMotion_smartcase = 1
-nnoremap S <nop>
-nnoremap Q <nop>
-nnoremap q <nop>
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-map s <Plug>(easymotion-s)
+
 " coc snippets thingy
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -181,8 +140,9 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 highlight clear SignColumn
+highlight LineNr guibg=NONE
 
-"deleted:  "\ 'coc-eslint', 
+
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-html',
@@ -300,7 +260,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics

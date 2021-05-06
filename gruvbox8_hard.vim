@@ -16,7 +16,7 @@ endif
 let g:colors_name = 'gruvbox8_hard'
 
 let s:t_Co = exists('&t_Co') && !empty(&t_Co) && &t_Co > 1 ? &t_Co : 2
-let s:italics = (&t_ZH != '' && &t_ZH != '[7m') || has('gui_running') || has('nvim')
+let s:italics = (&t_ZH != '' && &t_ZH != '[7m') || has('gui_running') || has('nvim')
 
 let s:italics = s:italics && get(g:, 'gruvbox_italics', 1)
 hi! link CursorColumn CursorLine
@@ -59,7 +59,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
       hi SignColumn guifg=#ebdbb2 guibg=NONE guisp=NONE gui=NONE cterm=NONE
       hi VertSplit guifg=#665c54 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     else
-      hi Normal guifg=#ebdbb2 guibg=#1c1c1c guisp=NONE gui=NONE cterm=NONE
+      hi Normal guifg=#ebdbb2 guibg=NONE guisp=NONE gui=NONE cterm=NONE
       hi CursorLineNr guifg=#fabd2f guibg=NONE guisp=NONE gui=bold cterm=bold
       hi FoldColumn guifg=#928374 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
       hi SignColumn guifg=#ebdbb2 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
