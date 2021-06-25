@@ -24,7 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
-Plug 'yggdroot/indentline'
+"Plug 'yggdroot/indentline'
 call plug#end()
 
 " leader key mapping
@@ -88,7 +88,7 @@ nnoremap <leader>re :Prettier<CR>
 " disabling commenting the new line after a comment
 autocmd FileType * set formatoptions-=cro
 " indent lines on/off
-nnoremap <leader>2 :IndentLinesToggle<CR>
+"nnoremap <leader>2 :IndentLinesToggle<CR>
 " sort tailwind classes
 nnoremap <leader>tw :CocCommand tailwindCSS.headwind.sortTailwindClasses<CR>
 " delete search results
@@ -144,6 +144,7 @@ let g:coc_snippet_next = '<tab>'
 highlight clear SignColumn
 highlight LineNr guibg=NONE
 highlight clear StatusLine
+set statusline=%t\ \%m
 
 
 let g:coc_global_extensions = [
@@ -154,7 +155,8 @@ let g:coc_global_extensions = [
   \ 'coc-tslint-plugin', 
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-styled-components', 
+  \ 'coc-styled-components',
+  \ 'coc-tailwindcss'
   \ ]
 
 " DEFAULT SHIT FOR COC PLUGIN FROM HERE AND UNDER

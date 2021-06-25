@@ -8,10 +8,8 @@ alias mw='cd ~/Documents/mw'
 alias pg='cd ~/Documents/pg/'
 alias dsk='cd ~/Desktop/'
 alias dls='cd ~/Downloads/;'
-alias skubi='rg -i kubi ./src/*'
-alias scl='rg -i console ./src/*'
-alias szi='rg -i z-index ./src/*'
-alias 500='cd /media/kubilay/500GB;'
+alias genpls='rm -rf ./src/__generated__ && apollo client:codegen src/__generated__ --target=typescript --outputFlat && npm run start'
+
 #alias tmux='env TERM=screen-256color tmux' #original
 #alias tmux='env TERM=xterm-256color tmux'
 
