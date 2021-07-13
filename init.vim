@@ -156,7 +156,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-styled-components',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-docker'
   \ ]
 
 " DEFAULT SHIT FOR COC PLUGIN FROM HERE AND UNDER
